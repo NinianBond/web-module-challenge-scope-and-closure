@@ -61,6 +61,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+Answer: Closure is the saved record of memory assigned to a variable in the global scope which is set to a function returning a function that has altered a value.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,8 +83,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+Answer:  Closure is in evidence within this code specifically where personalDice() is defined with a return statement that calls an anonymous function which alters the value of newRoll by using Math.random each time the function is called.  You know that closure is in evidence here simply by having a value set inside of a function which the parent function is calling in it's return statement.  
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+Answer:  The const value of personalDice("Dan") being set to dansRoll passes the argument "Dan" into the parameter for name; this will not change.  However within the anonymous function used in the return of personalDice("Dan") we will get a new random number between 1 and 6 which is logged using string interpolation of the value newRoll.
 c. What is the lexical scope of `newRoll`? 
+Answer:  newRoll is only available within the anonymous function used in the return value for personalDice(name) because const is block scoped.
 
 
 ### Task 3 - Stretch Goals

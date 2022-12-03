@@ -30,11 +30,14 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  Answer: counter1 has stored a reference to counterMaker that has a memory of it's own local, lexical scope closure saving the incremented value of count each time one calls counter1(). counter2 is not functioning like a computer which can be assigned to a variable to keep track of the global variable count. 
   
   2. Which of the two uses a closure? How can you tell?
+  Answer:  counter1 uses a closure because of it's lexical scope and local return within counterMaker of an incrementing function.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     Answer: counter1 is better when we need multiple instances of counters assigned to unique global variables and tracking their own individual counters.  counter2 would be better when we only have one count to keep track of.
 */
 
 // counter1 code
@@ -54,6 +57,10 @@ function counter2() {
   return count++;
 }
 
+// const counter3 = counter2();
+// console.log(counter3);
+// console.log(counter3);
+// console.log(counter3);
 
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
@@ -64,8 +71,9 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    const score = Math.floor(Math.random() * 2);
+    return score;
 }
 
 
@@ -83,8 +91,16 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function finalScore(inning, number) {
+  const home = inning();
+  const away = inning();
+  const score = {
+  }
+  for(let i = number; i > 0; i--) {
+    score.Home += home;
+    score.Away += away;
+  }
+  return score;
 }
 
 
@@ -101,9 +117,14 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-
+function getInningScore(inning) {
+    const home = inning();
+    const away = inning();
+    const score = {
+    }
+    score.Home = home;
+    score.Away = away;
+    return score;
 }
 
 
@@ -147,11 +168,9 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard() {
+  
 }
-
-
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
